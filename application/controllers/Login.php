@@ -16,6 +16,8 @@ class Login extends CI_Controller {
     public function index()
     {
         
+        $this->load->library('session');
+        
         $this->load->view('login_view');
         
     }
@@ -33,6 +35,9 @@ class Login extends CI_Controller {
                 'level'     => $level,
                 'logged_in' => TRUE
             );
+            
+            $this->load->library('session');
+            
             $this->session->set_userdata($sesdata);
             // access login for admin
             if($level === 'admin'){
@@ -108,8 +113,8 @@ class Login extends CI_Controller {
     //     // }
 
         function logout(){
-            $this->session->sess_destroy();
-            redirect('login_view');
+           $this->session->sess_destroy();
+           redirect('login/index');
         }
     }
 ?>

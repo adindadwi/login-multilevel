@@ -11,5 +11,8 @@
     <div class="panel-body">
     Selamat Datang <b><?php echo $this->session->userdata("username") ?></b> di halaman Siswa
     </div>
+    <div class="pull-right">
+    <a href="<?php echo site_url('login/logout');?>">Keluar</a>
+    </div>
 </body>
 </html>
